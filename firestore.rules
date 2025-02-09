@@ -1,0 +1,69 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function to get authenticated user
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to get the user's role based on the authenticated user's UID
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+    
+    // Helper function to verify user owns the document
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Carousel collection - allow public read, admin write
+    match /carousel/{carouselId} {
+      allow read: if true;
+      allow write: if isAuthenticated() && getUserRole() == 'admin';
+    }
+
+    // Cart collection
+    // match /cart/{cartId} {
+    //   allow read: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    //   allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+    //   allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    // }
+
+    // Blogs collection
+    match /blogs/{blogId} {
+      allow read: if true;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read: if request.auth != null && (request.auth.uid == userId || isSuperAdmin(request.auth.uid));
+      allow write: if request.auth != null && request.auth.uid == userId;
+      allow update: if request.auth != null && request.auth.uid == userId && 
+                   !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role']) || isSuperAdmin(request.auth.uid);
+      allow create, delete: if request.auth != null && isSuperAdmin(request.auth.uid);
+    }
+
+    function isSuperAdmin(userId) {
+      return get(/databases/$(database)/documents/users/$(userId)).data.role == 'admin';
+    }
+
+    // match /users/{userId} {
+    //   // Allow users to read their own data
+    //   allow read: if request.auth != null && (request.auth.uid == userId || isAdmin());
+    //   // Allow users to update their own data (except role)
+    //   allow update: if request.auth != null && 
+    //                request.auth.uid == userId && 
+    //                !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role']);
+    //   // Only admins can create/delete users or modify roles
+    //   allow create, delete: if isAdmin();
+    //   allow update: if isAdmin();
+    // }
+    
+    // function isAdmin() {
+    //   return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'Admin';
+    // }
+  }
+}
