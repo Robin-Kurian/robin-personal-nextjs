@@ -29,9 +29,8 @@ const Navbar = () => {
 
       {/* Right Section*/}
       <NavbarContent justify="end" className="flex gap-4">
-        {/* RightMenuGroup: Login, Menu Button */}
         <ThemeSwitcher />
-
+        {/* RightMenuGroup: Login, Menu Button */}
         <NavbarItem className="sm:flex">
           <RightMenuGroup />
         </NavbarItem>
