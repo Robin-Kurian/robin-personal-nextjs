@@ -25,10 +25,10 @@ export function AppSidebar() {
   }, [pathname]);
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" >
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-xl text-foreground font-bold my-3">
+          <SidebarGroupLabel className="text-xl font-bold my-3">
             Robin'z
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -39,9 +39,6 @@ export function AppSidebar() {
                     <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
-                      {isActive === item.url && (
-                        <ChevronRight className="w-4 h-4 absolute right-2" />
-                      )}
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
