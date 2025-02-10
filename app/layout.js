@@ -5,6 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 import AuthProvider from "@/components/AuthProvider";
 import Navbar from "@/components/common/Navbar/Navbar";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,13 +31,15 @@ export default function RootLayout({ children }) {
       >
         <TooltipProvider>
           <Toaster />
-
           <Sonner />
           <AuthProvider>
-            <div className="min-h-screen flex flex-col">
-              <Navbar />
-              <main className="flex-grow">{children}</main>
-            </div>
+            <SidebarProvider>
+              <AppSidebar />
+              <div className="min-h-screen flex flex-col">
+                <Navbar />
+                <main className="flex-grow">{children}</main>
+              </div>
+            </SidebarProvider>
           </AuthProvider>
         </TooltipProvider>
       </body>

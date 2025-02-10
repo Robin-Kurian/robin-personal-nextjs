@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Navbar as NextNavbar, NavbarContent, NavbarItem } from "@heroui/react";
 import RightMenuGroup from "./RightMenuGroup";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+
 const Navbar = () => {
   return (
     <NextNavbar
@@ -17,8 +19,9 @@ const Navbar = () => {
     >
       {/* Left Section: Shop Logo */}
       <NavbarContent justify="start">
+        <SidebarTrigger />
         <Link href="/" className="flex items-center gap-1">
-          <span className="text-lg font-bold">Robin's Portfolio</span>
+          <span className="text-lg font-bold">Robin'z</span>
         </Link>
       </NavbarContent>
 
