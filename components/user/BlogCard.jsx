@@ -1,4 +1,3 @@
-import ContentWrapper from "@/components/common/layouts/ContentWrapper";
 import {
   Card,
   CardHeader,
@@ -24,23 +23,18 @@ const BlogCard = ({ blog, onClick, className }) => {
           src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
           width={40}
         />
-        <div className="flex flex-col">
-          <p className="text-md">{blog?.name}</p>
-          <p className="text-small text-default-500">heroui.com</p>
+        <div className="flex flex-col ">
+          <p className="text-md left-0">{blog?.name}</p>
         </div>
       </CardHeader>
       <Divider />
       <CardBody>
-        <p>Make beautiful websites regardless of your design experience.</p>
+        <p>{blog?.description}</p>
       </CardBody>
       <Divider />
       <CardFooter>
-        <Link
-          isExternal
-          showAnchorIcon
-          href="https://github.com/heroui-inc/heroui"
-        >
-          Visit source code on GitHub.
+        <Link isExternal showAnchorIcon href={blog?.url}>
+          Read More
         </Link>
       </CardFooter>
     </Card>
