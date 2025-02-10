@@ -27,6 +27,7 @@ const HomeComponent = ({ initialData }) => {
   return (
     <ContentWrapper className="gap-4">
       {/* BLOGS SECTION */}
+      <h1 className="text-2xl font-bold">Blogs</h1>
       <Gridlayout>
         {blogs.map((blog) => (
           <BlogCard
