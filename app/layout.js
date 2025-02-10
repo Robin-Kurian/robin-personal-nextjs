@@ -35,10 +35,10 @@ export default function RootLayout({ children }) {
           <AuthProvider>
             <SidebarProvider>
               <AppSidebar />
-              <div className="min-h-screen flex flex-col">
+              <main className="flex-grow w-full">
                 <Navbar />
-                <main className="flex-grow">{children}</main>
-              </div>
+                {children}
+              </main>
             </SidebarProvider>
           </AuthProvider>
         </TooltipProvider>

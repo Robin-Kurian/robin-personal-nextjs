@@ -21,7 +21,7 @@ const Navbar = () => {
       <NavbarContent justify="start">
         <SidebarTrigger />
         <Link href="/" className="flex items-center gap-1">
-          <span className="text-lg font-bold">Robin'z</span>
+          <span className="text-lg font-bold">Home</span>
         </Link>
       </NavbarContent>
 

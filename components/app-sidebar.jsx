@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import { Calendar, Home, Inbox, Search, Settings, User } from "lucide-react";
 
 import {
   Sidebar,
@@ -10,51 +10,62 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import Link from "next/link";
 
 // Menu items.
 const items = [
   {
     title: "Home",
-    url: "#",
+    url: "/",
     icon: Home,
   },
   {
-    title: "Inbox",
-    url: "#",
+    title: "About",
+    url: "/about",
+    icon: User,
+  },
+  {
+    title: "Skills",
+    url: "/skills",
     icon: Inbox,
   },
   {
-    title: "Calendar",
-    url: "#",
+    title: "Works",
+    url: "/works",
     icon: Calendar,
   },
   {
-    title: "Search",
-    url: "#",
+    title: "Gallery",
+    url: "/gallery",
     icon: Search,
   },
   {
-    title: "Settings",
-    url: "#",
+    title: "Contact",
+    url: "/contact",
     icon: Settings,
   },
 ];
 
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar collapsible="icon">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-xl text-foreground font-bold my-3">
+            Robin'z
+          </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="flex flex-col gap-4">
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link
+                      href={item.url}
+                      className="peer-data-[active=true]/menu-button:opacity-100"
+                    >
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
