@@ -1,5 +1,11 @@
+import ContentWrapper from "@/components/common/layouts/ContentWrapper";
+
 const WorksPage = () => {
-  return <div>Works</div>;
+  return (
+    <ContentWrapper>
+      
+    </ContentWrapper>
+  );
 };
 
 export default WorksPage;

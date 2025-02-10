@@ -36,9 +36,9 @@ const AboutPage = () => {
             height={250}
           />
           <p>
-            Selene is a Jakarta-based design engineer with a passion for
-            transforming complex challenges into simple, elegant design
-            solutions...
+            Robin is a Bengaluru-based software developer with a passion for
+            crafting intuitive user experiences. Previously, worked as a
+            software developer at Mobiux Labs, Cybrosys Technologies etc.
           </p>
         </section>
         <section id="work-experience" className="transition duration-300">
