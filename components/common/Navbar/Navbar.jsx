@@ -2,7 +2,12 @@
 "use client";
 
 import Link from "next/link";
-import { Navbar as NextNavbar, NavbarContent, NavbarItem } from "@heroui/react";
+import {
+  Navbar as NextNavbar,
+  NavbarContent,
+  NavbarItem,
+  Image,
+} from "@heroui/react";
 import RightMenuGroup from "./RightMenuGroup";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import { SidebarTrigger } from "@/components/ui/sidebar";
@@ -18,10 +23,10 @@ const Navbar = () => {
       }}
     >
       {/* Left Section: Shop Logo */}
-      <NavbarContent justify="start">
+      <NavbarContent justify="start" className="flex gap-2">
         <SidebarTrigger />
-        <Link href="/" className="flex items-center gap-1">
-          <span className="text-lg font-bold">Home</span>
+        <Link href="/" className="flex items-center">
+          <Image src="/r.ico" alt="logo" width={32} height={32} />
         </Link>
       </NavbarContent>
 

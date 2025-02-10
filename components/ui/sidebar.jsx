@@ -2,12 +2,15 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
-import { PanelLeft } from "lucide-react";
-
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  BsLayoutSidebarInset,
+  BsLayoutSidebarInsetReverse,
+} from "react-icons/bs";
+
 import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
@@ -251,7 +254,7 @@ Sidebar.displayName = "Sidebar";
 
 const SidebarTrigger = React.forwardRef(
   ({ className, onClick, ...props }, ref) => {
-    const { toggleSidebar } = useSidebar();
+    const { open, isMobile, state, toggleSidebar } = useSidebar();
 
     return (
       <Button
@@ -259,14 +262,19 @@ const SidebarTrigger = React.forwardRef(
         data-sidebar="trigger"
         variant="ghost"
         size="icon"
-        className={cn("h-7 w-7", className)}
+        className={cn("h-8 w-8", className)}
         onClick={(event) => {
           onClick?.(event);
           toggleSidebar();
         }}
         {...props}
       >
-        <PanelLeft />
+        {state === "collapsed" ? (
+          <BsLayoutSidebarInsetReverse />
+        ) : (
+          <BsLayoutSidebarInset />
+        )}
+
         <span className="sr-only">Toggle Sidebar</span>
       </Button>
     );
