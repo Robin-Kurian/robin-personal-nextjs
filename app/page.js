@@ -8,7 +8,7 @@ export default async function Home() {
   const INITIAL_DATA = { BLOGS };
 
   return (
-    <ContentWrapper className="p-1 gap-4">
+    <ContentWrapper className="gap-4">
       <HomeComponent initialData={INITIAL_DATA} />
     </ContentWrapper>
   );
