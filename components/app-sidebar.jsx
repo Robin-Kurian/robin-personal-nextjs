@@ -1,4 +1,5 @@
-import { Calendar, Home, Inbox, Search, Settings, User } from "lucide-react";
+"use client";
+import { ChevronRight } from "lucide-react";
 
 import {
   Sidebar,
@@ -11,42 +12,18 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
-
-// Menu items.
-const items = [
-  {
-    title: "Home",
-    url: "/",
-    icon: Home,
-  },
-  {
-    title: "About",
-    url: "/about",
-    icon: User,
-  },
-  {
-    title: "Skills",
-    url: "/skills",
-    icon: Inbox,
-  },
-  {
-    title: "Works",
-    url: "/works",
-    icon: Calendar,
-  },
-  {
-    title: "Gallery",
-    url: "/gallery",
-    icon: Search,
-  },
-  {
-    title: "Contact",
-    url: "/contact",
-    icon: Settings,
-  },
-];
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { SIDEBAR_ITEMS } from "@/utilities/constants";
 
 export function AppSidebar() {
+  const [isActive, setIsActive] = useState(null);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsActive(pathname);
+  }, [pathname]);
+
   return (
     <Sidebar collapsible="icon">
       <SidebarContent>
@@ -56,15 +33,15 @@ export function AppSidebar() {
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="flex flex-col gap-4">
-              {items.map((item) => (
+              {SIDEBAR_ITEMS.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <Link
-                      href={item.url}
-                      className="peer-data-[active=true]/menu-button:opacity-100"
-                    >
+                  <SidebarMenuButton asChild isActive={isActive === item.url}>
+                    <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
+                      {isActive === item.url && (
+                        <ChevronRight className="w-4 h-4 absolute right-2" />
+                      )}
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
