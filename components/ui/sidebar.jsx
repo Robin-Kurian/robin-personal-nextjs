@@ -191,7 +191,10 @@ const Sidebar = React.forwardRef(
             <SheetHeader>
               <SheetTitle hidden />
             </SheetHeader>
-            <div className="flex h-full w-full flex-col" onClick={handleItemClick}>
+            <div
+              className="flex h-full w-full flex-col"
+              onClick={handleItemClick}
+            >
               {children}
             </div>
           </SheetContent>
