@@ -10,15 +10,41 @@ import {
 } from "@heroui/react";
 import { ABOUT_MENU_ITEMS } from "@/utilities/constants";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import { useState, useEffect } from "react";
 // import { SidebarTrigger } from "@/components/ui/sidebar";
 
 const Navbar = () => {
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ABOUT_MENU_ITEMS.map(item => item.url.replace('#', ''));
+      
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
+            setActiveSection('#' + sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleScrollToSection = (e, url) => {
     e.preventDefault();
     const sectionId = url.replace('#', '');
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(url);
     }
   };
 
@@ -34,9 +60,12 @@ const Navbar = () => {
       {/* Left Section: Shop Logo */}
       <NavbarContent justify="start" className="flex gap-2">
         {/* <SidebarTrigger /> */}
-        <Link href="/" className="flex items-center">
+        <a href="#about"
+          onClick={(e) => handleScrollToSection(e, "#about")}
+          className="flex items-center"
+        >
           <Image src="/r.ico" alt="logo" width={32} height={32} />
-        </Link>
+        </a>
       </NavbarContent>
 
       {/* Middle Section: Search Bar and Delivery Address (DESKTOP ONLY) */}
@@ -48,12 +77,26 @@ const Navbar = () => {
               <a
                 href={item.url}
                 onClick={(e) => handleScrollToSection(e, item.url)}
-                className="text-teal-500 hover:underline cursor-pointer transition-colors duration-300"
+                className={`
+                  px-4 py-2 
+                  rounded-full
+                  ${activeSection === item.url 
+                    ? 'bg-background/30 border-primary/50 text-foreground shadow-md' 
+                    : 'bg-background/10 border-border/50 text-foreground/80'
+                  }
+                  backdrop-blur-md
+                  border
+                  hover:bg-background/20 
+                  hover:scale-105
+                  active:scale-95
+                  transition-all duration-200
+                  flex items-center gap-2
+                  hover:text-foreground
+                  shadow-sm hover:shadow-md
+                `}
               >
-                <div className="flex items-center gap-2">
-                  <item.icon className="w-4 h-4" />
-                  {item.title}
-                </div>
+                <item.icon className="w-4 h-4" />
+                {item.title}
               </a>
             </li>
           ))}
