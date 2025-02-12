@@ -19,7 +19,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ABOUT_MENU_ITEMS.map(item => item.url.replace('#', ''));
-      
+
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -34,7 +34,7 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check initial position
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -80,8 +80,8 @@ const Navbar = () => {
                 className={`
                   px-4 py-2 
                   rounded-full
-                  ${activeSection === item.url 
-                    ? 'bg-background/30 border-primary/50 text-foreground shadow-md' 
+                  ${activeSection === item.url
+                    ? 'bg-background/30 border-primary/50 text-foreground shadow-md'
                     : 'bg-background/10 border-border/50 text-foreground/80'
                   }
                   backdrop-blur-md
