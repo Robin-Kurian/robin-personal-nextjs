@@ -8,9 +8,9 @@ import {
   NavbarItem,
   Image,
 } from "@heroui/react";
-import RightMenuGroup from "./RightMenuGroup";
+import { ABOUT_MENU_ITEMS } from "@/utilities/constants";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
-import { SidebarTrigger } from "@/components/ui/sidebar";
+// import { SidebarTrigger } from "@/components/ui/sidebar";
 
 const Navbar = () => {
   return (
@@ -24,15 +24,31 @@ const Navbar = () => {
     >
       {/* Left Section: Shop Logo */}
       <NavbarContent justify="start" className="flex gap-2">
-        <SidebarTrigger />
+        {/* <SidebarTrigger /> */}
         <Link href="/" className="flex items-center">
           <Image src="/r.ico" alt="logo" width={32} height={32} />
         </Link>
       </NavbarContent>
 
       {/* Middle Section: Search Bar and Delivery Address (DESKTOP ONLY) */}
-      <NavbarContent className="hidden lg:flex gap-4 w-1/3" justify="center">
-        {/* <NavSearchBar /> */}
+      <NavbarContent className="hidden md:flex gap-4 w-2/3" justify="center">
+        {/* <nav className="flexs flex-cols"> */}
+        <ul className="flex flex-row gap-4">
+          {ABOUT_MENU_ITEMS.map((item) => (
+            <li key={item.title}>
+              <Link
+                href={item.url}
+                className="text-teal-500 hover:underline "
+              >
+                <div className="flex items-center gap-2">
+                  <item.icon />
+                  {item.title}
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        {/* </nav>       */}
       </NavbarContent>
 
       {/* Right Section*/}
@@ -40,7 +56,7 @@ const Navbar = () => {
         <ThemeSwitcher />
         {/* RightMenuGroup: Login, Menu Button */}
         <NavbarItem className="sm:flex">
-          <RightMenuGroup />
+          {/* <RightMenuGroup /> */}
         </NavbarItem>
       </NavbarContent>
     </NextNavbar>
