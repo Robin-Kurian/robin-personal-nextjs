@@ -112,14 +112,14 @@ const Navbar = () => {
 
 
       {/* Middle Section:  (DESKTOP ONLY) */}
-      <NavbarContent className="hidden sm:flex gap-4 w-2/3" justify="center">
+      <NavbarContent className="hidden sm:flex gap-4 w-3/4" justify="center">
         <ul className="flex flex-row gap-4">
           {ABOUT_MENU_ITEMS.map((item) => (
             <li key={item.title}>
               <a
                 href={item.url}
                 onClick={(e) => handleScrollToSection(e, item.url)}
-                className={menuStyles(activeSection === item.url, '')}
+                className={menuStyles(activeSection === item.url, 'text-sm')}
               >
                 <item.icon className="w-4 h-4" />
                 {item.title}
