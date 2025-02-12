@@ -7,8 +7,9 @@ import {
   Briefcase,
   Code,
   Package,
-  Image,
+  Image
 } from "lucide-react";
+import { LuFilePenLine } from "react-icons/lu";
 
 const SET_VALUE_CONFIG = {
   shouldValidate: true,
@@ -87,22 +88,27 @@ const ABOUT_MENU_ITEMS = [
     isActive: false,
   },
   {
-    title: "Experience",
-    url: "#experience",
-    icon: Briefcase,
-    isActive: false,
-  },
-
-  {
     title: "Skills",
     url: "#skills",
     icon: Code,
     isActive: false,
   },
   {
+    title: "Experience",
+    url: "#experience",
+    icon: Briefcase,
+    isActive: false,
+  },
+  {
     title: "Works",
     url: "#works",
     icon: Package,
+    isActive: false,
+  },
+  {
+    title: "Blogs",
+    url: "#blogs",
+    icon: LuFilePenLine ,
     isActive: false,
   },
   {
