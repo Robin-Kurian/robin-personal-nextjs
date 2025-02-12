@@ -12,6 +12,13 @@ const GallerySection = () => {
                     width={400}
                     height={300}
                 />
+                <Image
+                    src="/images/about/work-experience.jpg"
+                    alt="Gallery Image"
+                    className="rounded-lg object-cover"
+                    width={400}
+                    height={300}
+                />
                 {/* Add more images */}
             </div>
         </section>

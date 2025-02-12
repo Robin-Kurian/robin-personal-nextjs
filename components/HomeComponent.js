@@ -32,7 +32,7 @@ const HomeComponent = ({ initialData }) => {
   if (isLoading) return <Loader />;
 
   return (
-    <ContentWrapper className="max-w-6xl mx-auto px-4 py-8">
+    <ContentWrapper className="max-w-6xl  mx-auto px-4 py-8">
       <AboutSection />
       <ExperienceSection />
       <SkillsSection />

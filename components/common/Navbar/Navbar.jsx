@@ -60,8 +60,8 @@ const Navbar = () => {
       {/* Left Section: Shop Logo */}
       <NavbarContent justify="start" className="flex gap-2">
         {/* <SidebarTrigger /> */}
-        <a href="#about"
-          onClick={(e) => handleScrollToSection(e, "#about")}
+        <a href="#home"
+          onClick={(e) => handleScrollToSection(e, "#home")}
           className="flex items-center"
         >
           <Image src="/r.ico" alt="logo" width={32} height={32} />
