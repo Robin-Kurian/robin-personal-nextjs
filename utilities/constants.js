@@ -82,7 +82,7 @@ const SIDEBAR_ITEMS = [
 const ABOUT_MENU_ITEMS = [
   {
     title: "About me",
-    url: "#about",
+    url: "#home",
     icon: User,
     isActive: false,
   },
