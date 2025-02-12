@@ -1,6 +1,6 @@
 const ExperienceSection = () => {
     return (
-        <section id="experience" className="min-h-screen py-20">
+        <section id="experience" className="min-h-full py-20">
             <h2 className="text-4xl font-bold mb-8">Work Experience</h2>
             <div className="space-y-8">
                 <div className="bg-secondary/10 p-6 rounded-lg">

@@ -34,8 +34,8 @@ const HomeComponent = ({ initialData }) => {
   return (
     <ContentWrapper className="max-w-6xl  mx-auto px-4 py-8">
       <AboutSection />
-      <ExperienceSection />
       <SkillsSection />
+      <ExperienceSection />
       <WorksSection />
       <GallerySection />
       <BlogsSection blogs={blogs} onBlogClick={handleBlogClick} />

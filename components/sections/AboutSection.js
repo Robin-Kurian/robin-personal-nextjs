@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const AboutSection = () => {
     return (
-        <section className="min-h-full flex flex-col justify-between">
+        <section className="min-h-full flex flex-col ">
             <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
                 <div className="flex-1 text-center md:text-left">
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-500 to-blue-500 text-transparent bg-clip-text">
