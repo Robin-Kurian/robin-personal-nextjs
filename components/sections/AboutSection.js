@@ -20,50 +20,54 @@ const AboutSection = () => {
   const readMoreOrLess = (
     <span className="text-sm bg-gradient-to-r from-teal-500 to-blue-500 text-transparent bg-clip-text ">
       {" "}
-      Read more..
+      Know me more..
     </span>
   );
 
   const expandedDescription = (
-    <span className="text-left text-base">
-      <br />
-      <br />
-      Over the past few years, I have specialized in both Frontend & Backend Web
-      technologies such as Next.js, ReactJs, Javascript, Django, Python,
-      PostgreSQL and REST APIs etc.
-      <br />
-      <br /> My prior role at{" "}
-      <a
-        href="https://www.mobiux.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-500 font-bold rounded-md"
-      >
-        Mobiux Labs
-      </a>{" "}
-      immensely helped me in developing and delivering products that clients
-      valued, which greatly enhanced my professional growth and development.
-      <br />
-      <br />
-      While at{" "}
-      <a
-        href="https://www.cybrosys.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-400 font-bold rounded-md"
-      >
-        Cybrosys technologies{" "}
-      </a>{" "}
-      , I made important contributions to ERP software development in Python,
-      Javascript, Odoo and other web frameworks. Meanwhile working on Django and
-      React for personal Projects.
-      <br />
-      <br />
-      In addition to my core skills, I spent time programming Flutter mobile
-      apps, Electron.js applications, and browser extensions for the Edge Store.
-      <br />I thrive on leveraging technology to solve real-world challenges and
-      am always on the lookout for new opportunities to grow.
-    </span>
+    <>
+      <span className="text-lg font-semibold">Thanks for your time!🤠</span>
+      <span className="text-left text-base">
+        <br />
+        <br />
+        I am specializing in both Frontend & Backend Web technologies such as
+        Next.js, ReactJs, Javascript, Django, Python, PostgreSQL and REST APIs
+        etc, over the past few years.
+        <br />
+        <br /> My prior role at{" "}
+        <a
+          href="https://www.mobiux.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 font-bold rounded-md"
+        >
+          Mobiux Labs
+        </a>{" "}
+        immensely helped me in developing and delivering products that clients
+        valued, which greatly enhanced my professional growth and development.
+        <br />
+        <br />
+        While at{" "}
+        <a
+          href="https://www.cybrosys.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-400 font-bold rounded-md"
+        >
+          Cybrosys technologies{" "}
+        </a>{" "}
+        , I made important contributions to ERP software development in Python,
+        Javascript, Odoo and other web frameworks. Meanwhile working on Django
+        and React for personal Projects.
+        <br />
+        <br />
+        In addition to my core skills, I spent time programming Flutter mobile
+        apps, Electron.js applications, and browser extensions for the Edge
+        Store.
+        <br />I thrive on leveraging technology to solve real-world challenges
+        and am always on the lookout for new opportunities to grow.
+      </span>
+    </>
   );
 
   return (
@@ -81,9 +85,9 @@ const AboutSection = () => {
             {defaultDescription}
             <Dialog>
               <DialogTrigger> {readMoreOrLess}</DialogTrigger>
-              <DialogContent>
+              <DialogContent className="backdrop-blur-3xl bg-opacity-60">
                 <DialogHeader>
-                  <DialogTitle hidden></DialogTitle>
+                  <DialogTitle hidden />
                   <DialogDescription>{expandedDescription}</DialogDescription>
                 </DialogHeader>
               </DialogContent>
