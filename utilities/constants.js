@@ -6,6 +6,8 @@ import {
   User,
   Briefcase,
   Code,
+  Package,
+  Image,
 } from "lucide-react";
 
 const SET_VALUE_CONFIG = {
@@ -79,22 +81,34 @@ const SIDEBAR_ITEMS = [
 
 const ABOUT_MENU_ITEMS = [
   {
-    title: "Introduction",
-    url: "#introduction",
+    title: "About me",
+    url: "#about",
     icon: User,
     isActive: false,
   },
   {
-    title: "Work Experience",
-    url: "#work-experience",
+    title: "Experience",
+    url: "#experience",
     icon: Briefcase,
     isActive: false,
   },
 
   {
-    title: "Technical Skills",
-    url: "#technical-skills",
+    title: "Skills",
+    url: "#skills",
     icon: Code,
+    isActive: false,
+  },
+  {
+    title: "Works",
+    url: "#works",
+    icon: Package,
+    isActive: false,
+  },
+  {
+    title: "Gallery",
+    url: "#gallery",
+    icon: Image,
     isActive: false,
   },
 ];
