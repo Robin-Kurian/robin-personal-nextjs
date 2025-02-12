@@ -70,7 +70,7 @@ const Navbar = () => {
     shadow-sm hover:shadow-md
     ${additionalClasses} // Append additional class names
   `;
-  
+
   return (
     <NextNavbar
       maxWidth="2xl"
@@ -79,15 +79,15 @@ const Navbar = () => {
         wrapper: "px-4",
       }}
     >
-      {/* Left Section: Logo */}
+      {/* Left Section: Mobile Nav Menu, Logo */}
       <NavbarContent justify="start" className="flex gap-2">
-        <Popover key={'backdrop'} showArrow backdrop="blur" offset={10} placement="bottom" >
+        <Popover key={'backdrop'} backdrop="blur" offset={10} placement="bottom" >
           <PopoverTrigger className="sm:hidden">
           <Button isIconOnly radius="full" size="sm" className="text-foreground">
             <RiMenu5Line/>
           </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-[180px] h-[220px] flex gap-1">
+          <PopoverContent className="w-[200px] h-[260px] flex gap-1">
             {ABOUT_MENU_ITEMS.map((item, index) => (
              <a
                href={item.url}
