@@ -1,25 +1,28 @@
 // components/Navbar.jsx
 "use client";
 
-import Link from "next/link";
 import {
   Navbar as NextNavbar,
   NavbarContent,
   NavbarItem,
   Image,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  Button,
 } from "@heroui/react";
+import {RiMenu5Line} from "react-icons/ri"
 import { ABOUT_MENU_ITEMS } from "@/utilities/constants";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import { useState, useEffect } from "react";
-// import { SidebarTrigger } from "@/components/ui/sidebar";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
 
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = ABOUT_MENU_ITEMS.map(item => item.url.replace('#', ''));
-
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -48,18 +51,57 @@ const Navbar = () => {
     }
   };
 
+  const menuStyles = (isActive, additionalClasses = '') => `
+    px-4 py-2 
+    rounded-full
+    ${isActive
+      ? 'bg-background/30 border-primary/50 text-foreground shadow-md'
+      : 'bg-background/10 border-border/50 text-foreground/80'
+    }
+    backdrop-blur-md
+    border
+    hover:bg-background/20 
+    hover:scale-105
+    active:scale-95
+    active:bg-background/40
+    transition-all duration-200
+    flex items-center gap-2
+    hover:text-foreground
+    shadow-sm hover:shadow-md
+    ${additionalClasses} // Append additional class names
+  `;
+  
   return (
     <NextNavbar
       maxWidth="2xl"
       className="shadow-sm sticky top-0 z-50 backdrop-blur-sm bg-background/80"
       classNames={{
-        // base: "bg-white/50",
         wrapper: "px-4",
       }}
     >
-      {/* Left Section: Shop Logo */}
+      {/* Left Section: Logo */}
       <NavbarContent justify="start" className="flex gap-2">
-        {/* <SidebarTrigger /> */}
+        <Popover key={'backdrop'} showArrow backdrop="blur" offset={10} placement="bottom" >
+          <PopoverTrigger className="sm:hidden">
+          <Button isIconOnly radius="full" size="sm" className="text-foreground">
+            <RiMenu5Line/>
+          </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-[180px] h-[220px] flex gap-1">
+            {ABOUT_MENU_ITEMS.map((item, index) => (
+             <a
+               href={item.url}
+               key={item.title}
+               onClick={(e) => handleScrollToSection(e, item.url)}
+               className={menuStyles(activeSection === item.url, 'gap-1  w-full')}
+             >
+               <item.icon className="w-4 h-4" />
+               {item.title}
+             </a>
+            ))}
+          </PopoverContent>
+        </Popover>
+
         <a href="#home"
           onClick={(e) => handleScrollToSection(e, "#home")}
           className="flex items-center"
@@ -68,32 +110,16 @@ const Navbar = () => {
         </a>
       </NavbarContent>
 
-      {/* Middle Section: Search Bar and Delivery Address (DESKTOP ONLY) */}
-      <NavbarContent className="hidden md:flex gap-4 w-2/3" justify="center">
-        {/* <nav className="flexs flex-cols"> */}
+
+      {/* Middle Section:  (DESKTOP ONLY) */}
+      <NavbarContent className="hidden sm:flex gap-4 w-2/3" justify="center">
         <ul className="flex flex-row gap-4">
           {ABOUT_MENU_ITEMS.map((item) => (
             <li key={item.title}>
               <a
                 href={item.url}
                 onClick={(e) => handleScrollToSection(e, item.url)}
-                className={`
-                  px-4 py-2 
-                  rounded-full
-                  ${activeSection === item.url
-                    ? 'bg-background/30 border-primary/50 text-foreground shadow-md'
-                    : 'bg-background/10 border-border/50 text-foreground/80'
-                  }
-                  backdrop-blur-md
-                  border
-                  hover:bg-background/20 
-                  hover:scale-105
-                  active:scale-95
-                  transition-all duration-200
-                  flex items-center gap-2
-                  hover:text-foreground
-                  shadow-sm hover:shadow-md
-                `}
+                className={menuStyles(activeSection === item.url, '')}
               >
                 <item.icon className="w-4 h-4" />
                 {item.title}
@@ -101,7 +127,6 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        {/* </nav>       */}
       </NavbarContent>
 
       {/* Right Section*/}
