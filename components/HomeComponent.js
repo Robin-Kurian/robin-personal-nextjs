@@ -37,8 +37,8 @@ const HomeComponent = ({ initialData }) => {
       <SkillsSection />
       <ExperienceSection />
       <WorksSection />
-      <GallerySection />
       <BlogsSection blogs={blogs} onBlogClick={handleBlogClick} />
+      <GallerySection />
     </ContentWrapper>
   );
 };
