@@ -13,10 +13,19 @@ import ThemeSwitcher from "@/components/ThemeSwitcher";
 // import { SidebarTrigger } from "@/components/ui/sidebar";
 
 const Navbar = () => {
+  const handleScrollToSection = (e, url) => {
+    e.preventDefault();
+    const sectionId = url.replace('#', '');
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <NextNavbar
       maxWidth="2xl"
-      className="shadow-sm"
+      className="shadow-sm sticky top-0 z-50 backdrop-blur-sm bg-background/80"
       classNames={{
         // base: "bg-white/50",
         wrapper: "px-4",
@@ -36,15 +45,16 @@ const Navbar = () => {
         <ul className="flex flex-row gap-4">
           {ABOUT_MENU_ITEMS.map((item) => (
             <li key={item.title}>
-              <Link
+              <a
                 href={item.url}
-                className="text-teal-500 hover:underline "
+                onClick={(e) => handleScrollToSection(e, item.url)}
+                className="text-teal-500 hover:underline cursor-pointer transition-colors duration-300"
               >
                 <div className="flex items-center gap-2">
-                  <item.icon />
+                  <item.icon className="w-4 h-4" />
                   {item.title}
                 </div>
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
