@@ -1,12 +1,14 @@
 import Image from "next/image";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Button } from "../ui/button";
 
 const AboutSection = () => {
   const defaultDescription = (
@@ -26,47 +28,92 @@ const AboutSection = () => {
 
   const expandedDescription = (
     <>
-      <span className="text-lg font-semibold">Thanks for your time!🤠</span>
-      <span className="text-left text-base">
-        <br />
-        <br />
-        I am specializing in both Frontend & Backend Web technologies such as
-        Next.js, ReactJs, Javascript, Django, Python, PostgreSQL and REST APIs
-        etc, over the past few years.
-        <br />
-        <br /> My prior role at{" "}
-        <a
-          href="https://www.mobiux.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 font-bold rounded-md"
-        >
-          Mobiux Labs
-        </a>{" "}
-        immensely helped me in developing and delivering products that clients
-        valued, which greatly enhanced my professional growth and development.
-        <br />
-        <br />
-        While at{" "}
-        <a
-          href="https://www.cybrosys.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-400 font-bold rounded-md"
-        >
-          Cybrosys technologies{" "}
-        </a>{" "}
-        , I made important contributions to ERP software development in Python,
-        Javascript, Odoo and other web frameworks. Meanwhile working on Django
-        and React for personal Projects.
-        <br />
-        <br />
-        In addition to my core skills, I spent time programming Flutter mobile
-        apps, Electron.js applications, and browser extensions for the Edge
-        Store.
-        <br />I thrive on leveraging technology to solve real-world challenges
-        and am always on the lookout for new opportunities to grow.
+      <span className="text-lg font-semibold fade-in">
+        Thanks for your time!🤠
       </span>
+      <br />
+      <div className="text-left text-[15px] ">
+        <span className="fade-in delay-1">
+          Over the past few years, I have worked exclusively with frontend and
+          backend web technologies, primarily Next.js, React.js, JavaScript,
+          Django, Python, PostgreSQL, and REST APIs
+        </span>
+        <br />
+        <span className="fade-in delay-2">
+          <br /> My role at{" "}
+          <a
+            href="https://www.mobiux.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-blue-300 to-gray-300 text-transparent bg-clip-text  font-bold rounded-md"
+          >
+            Mobiux Labs
+          </a>{" "}
+          was instrumental in refining my ability to develop and deliver
+          products that clients valued, greatly enhancing my professional
+          growth. <br /> I worked on multiple projects utilizing Django, React,
+          and Flutter.
+        </span>
+        <br />
+        <span className="fade-in delay-3">
+          <br />
+          During my time at{" "}
+          <a
+            href="https://www.cybrosys.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-red-300 to-gray-400 text-transparent bg-clip-text font-bold rounded-md"
+          >
+            Cybrosys technologies,
+          </a>
+          {"  "}I was deeply involved in ERP development using Python,
+          JavaScript, and various web frameworks.
+        </span>
+        <br />
+        <span className="fade-in delay-4">
+          <br />
+          Beyond my core skills, I have worked on developing Flutter mobile
+          apps, Electron.js applications, and browser extensions for the Edge
+          Store.
+        </span>
+        <br />
+        <span className="fade-in delay-5">
+          <br />
+          Always dedicated to solving challenges with technology and refining my
+          expertise!!
+        </span>
+        <span className="fade-in delay-6">
+          <br />
+          <br />
+          {/* <a
+            href="#contact"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-green-300 to-green-700 text-transparent bg-clip-text font-bold rounded-md"
+          >
+            So, How can I help you?{" "}
+          </a> */}
+          <DialogClose asChild>
+            <Button
+              type="button"
+              variant="none"
+              onClick={() => {
+                document
+                  .getElementById("contact")
+                  .scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              So, How can I help you?
+            </Button>
+            {/* <a
+              href="#contact"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-green-300 to-green-700 text-transparent bg-clip-text font-bold rounded-md"
+            >
+              So, How can I help you?{" "}
+            </a> */}
+          </DialogClose>
+        </span>
+      </div>
     </>
   );
 
@@ -74,7 +121,7 @@ const AboutSection = () => {
     <section className="min-h-full flex flex-col">
       <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 ">
         <div className="flex-1 text-center md:text-left ">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-red-700 text-transparent bg-clip-text">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-blue-100 text-transparent bg-clip-text">
             Robin K
           </h1>
           <h2 className="text-3xl md:text-4xl font-semibold mb-6">
@@ -85,10 +132,12 @@ const AboutSection = () => {
             {defaultDescription}
             <Dialog>
               <DialogTrigger> {readMoreOrLess}</DialogTrigger>
-              <DialogContent className="backdrop-blur-3xl bg-opacity-60">
+              <DialogContent>
                 <DialogHeader>
                   <DialogTitle hidden />
-                  <DialogDescription>{expandedDescription}</DialogDescription>
+                  <div className="text-gray-900 dark:text-gray-400">
+                    {expandedDescription}
+                  </div>
                 </DialogHeader>
               </DialogContent>
             </Dialog>
