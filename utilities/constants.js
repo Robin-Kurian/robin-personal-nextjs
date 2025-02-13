@@ -7,7 +7,8 @@ import {
   Briefcase,
   Code,
   Package,
-  Image
+  Image,
+  ContactIcon,
 } from "lucide-react";
 import { LuFilePenLine } from "react-icons/lu";
 
@@ -108,15 +109,21 @@ const ABOUT_MENU_ITEMS = [
   {
     title: "Blogs",
     url: "#blogs",
-    icon: LuFilePenLine ,
+    icon: LuFilePenLine,
     isActive: false,
   },
   {
-    title: "Gallery",
-    url: "#gallery",
-    icon: Image,
+    title: "Contact",
+    url: "#contact",
+    icon: ContactIcon,
     isActive: false,
   },
+  // {
+  //   title: "Gallery",
+  //   url: "#gallery",
+  //   icon: Image,
+  //   isActive: false,
+  // },
 ];
 
 const CONSTANTS = {
