@@ -78,6 +78,36 @@ body {
   }
 }
 
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  } 
+}
+
+.delay-1 {
+  animation-delay: 1s; /* Adjust the delay as needed */
+}
+.delay-2 {
+  animation-delay: 5s;
+}
+.delay-3 {
+  animation-delay: 10s;
+}
+.delay-4 {
+  animation-delay: 14s;
+}
+.delay-5 {
+  animation-delay:18s;
+}
+.delay-6 {
+  animation-delay:20s;
+}
+
 @layer base {
   * {
     @apply border-border;
