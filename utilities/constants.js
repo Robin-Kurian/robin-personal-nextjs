@@ -1,21 +1,14 @@
-import {
-  Calendar,
-  Home,
-  Search,
-  Settings,
-  User,
-  Briefcase,
-  Code,
-  Package,
-  Image,
-  ContactIcon,
-} from "lucide-react";
-import { LuFilePenLine } from "react-icons/lu";
-
-const SET_VALUE_CONFIG = {
-  shouldValidate: true,
-};
-
+const SHOP_DETAILS = {
+  SHOP_ADMIN_NAME: "Edwin",
+  SHOP_NAME: "Baby Paradise",
+  SHOP_ADMIN_CONTACT: "9995058761",
+  SHOP_ADMIN_EMAIL: "chakkappanedwin@gmail.com",
+  SHOP_SUPPORT_EMAIL: "support@babyparadise.in",
+  SHOP_SITE_URL: "https://babyparadiseweb.netlify.app/",
+  SHOP_LOCATION: "https://maps.google.com/maps?q=Baby%20Paradise%20mission%20Hospital%20road%2C%20opposite%20to%20Sacred%20heart%20mission%20Hospital%2C%20Pullur%2C%20Kerala%20680683&output=embed",
+  SHOP_INSTAGRAM: "https://www.instagram.com/babyparadise.in",
+  SHOP_FACEBOOK: "https://www.facebook.com/babyparadise.in",
+}
 const HTTP_METHODS = {
   HEAD: "HEAD",
   GET: "GET",
@@ -35,96 +28,21 @@ const PLACEHOLDER = {
   CURRENCY: "₹__",
 };
 
-const menuItems = [
-  { label: "Login", href: "/login" },
-  { label: "About", href: "/about" },
-  { label: "Dashboard", href: "/admin/dashboard" },
-  { label: "Help & Feedback", href: "/help" },
-];
-
 const LOGGED_IN_MENU_ITEMS = [
   { key: "profile", label: "Profile", href: "/profile" },
+  { key: "cart", label: "Cart", href: "/cart" },
   { key: "about", label: "About", href: "/about" },
   { key: "help", label: "Help & Feedback", href: "/help" },
+  { key: "orders", label: "Orders", href: "/orders" },
 ];
 
-const SIDEBAR_ITEMS = [
-  {
-    title: "Home",
-    url: "/",
-    icon: Home,
-    isActive: false,
-  },
-  {
-    title: "About",
-    url: "/about",
-    icon: User,
-    isActive: false,
-  },
-  {
-    title: "Works",
-    url: "/works",
-    icon: Calendar,
-    isActive: false,
-  },
-  {
-    title: "Gallery",
-    url: "/gallery",
-    icon: Search,
-    isActive: false,
-  },
-  {
-    title: "Contact",
-    url: "/contact",
-    icon: Settings,
-    isActive: false,
-  },
-];
-
-const ABOUT_MENU_ITEMS = [
-  {
-    title: "About me",
-    url: "#home",
-    icon: User,
-    isActive: false,
-  },
-  {
-    title: "Skills",
-    url: "#skills",
-    icon: Code,
-    isActive: false,
-  },
-  {
-    title: "Experience",
-    url: "#experience",
-    icon: Briefcase,
-    isActive: false,
-  },
-  {
-    title: "Works",
-    url: "#works",
-    icon: Package,
-    isActive: false,
-  },
-  {
-    title: "Blogs",
-    url: "#blogs",
-    icon: LuFilePenLine,
-    isActive: false,
-  },
-  {
-    title: "Contact",
-    url: "#contact",
-    icon: ContactIcon,
-    isActive: false,
-  },
-  // {
-  //   title: "Gallery",
-  //   url: "#gallery",
-  //   icon: Image,
-  //   isActive: false,
-  // },
-];
+const DEFAULT_BUTTON_STYLES = {
+  variant: "bordered",
+  // color: "primary",
+  // rounded-2xl border-color-secondary-s90 
+  classNames: `font-normal rounded-none border border-color-secondary-s30 sm:hover:bg-color-primary-p50 hover:font-semibold`,
+  iconClassNames: "font-extralight text-color-secondary-s30"
+}
 
 const EXPERIENCE_DATA = [
   {
@@ -188,15 +106,15 @@ const CONSTANTS = {
   PLACEHOLDER,
   LOGGED_IN_MENU_ITEMS,
   SYMBOLS,
-  SIDEBAR_ITEMS,
+  DEFAULT_BUTTON_STYLES
 };
 
 export {
   SYMBOLS,
   PLACEHOLDER,
   HTTP_METHODS,
-  SIDEBAR_ITEMS,
+  // SIDEBAR_ITEMS,
   LOGGED_IN_MENU_ITEMS,
-  ABOUT_MENU_ITEMS,
+  // ABOUT_MENU_ITEMS,
   EXPERIENCE_DATA
 };

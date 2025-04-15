@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cashfreepayments/cashfree-js": "^1.0.5",
     "@heroui/react": "^2.6.14",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-dialog": "^1.1.6",
@@ -20,27 +21,33 @@
     "@radix-ui/react-toast": "^1.2.5",
     "@radix-ui/react-tooltip": "^1.1.8",
     "class-variance-authority": "^0.7.1",
+    "jszip": "^3.10.1",
     "clsx": "^2.1.1",
     "firebase": "^11.2.0",
     "framer-motion": "^12.0.6",
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.474.0",
-    "next": "15.1.6",
+    "next": "15.3.0",
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
+    "react-easy-crop": "^5.4.1",
     "sonner": "^1.7.4",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "use-debounce": "^10.0.4",
     "vaul": "^1.1.2",
-    "zustand": "^5.0.3"
+    "zustand": "^5.0.3",
+    "xlsx": "^0.18.5",
+    "algoliasearch": "^4.24.0",
+    "canvas-confetti": "^1.9.3",
+    "cashfree-pg": "^4.3.10"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "eslint": "^9",
-    "eslint-config-next": "15.1.6",
+    "eslint-config-next": "15.3.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1"
   }

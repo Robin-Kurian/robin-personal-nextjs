@@ -1,29 +1,26 @@
 "use client";
 
-import Loader from "./common/Loader";
 import { useEffect } from "react";
 import { auth } from "@/lib/firebase";
 import useAuthStore from "@/hooks/useAuthStore";
 import { onAuthStateChanged } from "firebase/auth";
-import { getUserRole } from "@/hooks/useAuthStore";
 
 const AuthProvider = ({ children }) => {
-  const { loading, setUser } = useAuthStore();
+  const { setUser } = useAuthStore();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const role = await getUserRole(user.uid);
-        setUser({ ...user, role });
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        // Get user data from Firestore
+        const userData = await useAuthStore.getState().fetchUserData(firebaseUser.uid);
+        setUser(userData); // Pass the complete user data
       } else {
         setUser(null);
       }
     });
 
-    return () => unsubscribe(); // Cleanup subscription on unmount
+    return () => unsubscribe();
   }, [setUser]);
-
-  if (loading) return <Loader />;
 
   return <>{children}</>;
 };

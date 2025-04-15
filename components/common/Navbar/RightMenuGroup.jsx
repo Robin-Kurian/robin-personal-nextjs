@@ -37,7 +37,7 @@ const RightMenuGroup = () => {
 
       {/* Dropdown for Login/Logout */}
       {isLoggedIn ? (
-        <Dropdown>
+        <Dropdown className="">
           <DropdownTrigger>
             <Button
               fullWidth

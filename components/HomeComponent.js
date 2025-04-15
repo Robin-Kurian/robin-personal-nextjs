@@ -10,7 +10,6 @@ import AboutSection from "@/components/sections/AboutSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import WorksSection from "@/components/sections/WorksSection";
-import GallerySection from "@/components/sections/GallerySection";
 import BlogsSection from "@/components/sections/BlogsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { Button } from "@heroui/react";

@@ -1,4 +1,4 @@
-import URLS from "@/utilities/urls.js";
+import URLS from "../urls";
 
 const getAllCategories = async () => {
   try {
