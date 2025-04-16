@@ -7,9 +7,16 @@ const person = {
     return `${this.firstName} ${this.lastName}`;
   },
   role: "Software Developer",
-  avatar: "/images/avatar.jpg",
-  location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  avatar: "/images/profile.png",
+  location: "Bengaluru, India", // Location to display
+  timeZone: "Asia/Kolkata", // IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Hindi", "Malayalam"], // optional: Leave the array empty if you don't want to display languages
+  contact: "8848824751",
+  email: "dev.robinkurian@gmail.com",
+  googleMapLocation: "https://maps.google.com/maps?q=Baby%20Paradise%20mission%20Hospital%20road%2C%20opposite%20to%20Sacred%20heart%20mission%20Hospital%2C%20Pullur%2C%20Kerala%20680683&output=embed",
+  instagram: "https://www.instagram.com/the_cipher_head",
+  linkedin: "https://www.linkedin.com/in/developer-robin-kurian/",
+  github: "https://github.com/Robin-Kurian/",
 };
 
 const newsletter = {
@@ -29,12 +36,12 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/Robin-Kurian/",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/developer-robin-kurian/",
   },
   {
     name: "X",
@@ -44,7 +51,7 @@ const social = [
   {
     name: "Email",
     icon: "email",
-    link: "mailto:example@gmail.com",
+    link: "mailto:dev.robinkurian@gmail.com",
   },
 ];
 
@@ -52,11 +59,10 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Design engineer and builder</>,
+  headline: <>Full-Stack Developer </>,
   subline: (
     <>
-      I'm {person.firstName}, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm {person.firstName}, a web developer dedicated to creating modern digital experiences. I have a proven track record of delivering impactful solutions at <InlineCode>MOBIUX</InlineCode>, <InlineCode>CYBROSYS</InlineCode> etc., as well as personal projects I pursue in my spare time.
     </>
   ),
 };
@@ -74,16 +80,14 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/robin-kurian",
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Robin is a Bengaluru-based software engineer, specializing in simplifying complex challenges through elegant design solutions across digital interfaces and interactive experiences.
       </>
     ),
   },
@@ -92,45 +96,99 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Mobiux Labs",
+        timeframe: "May 2023 – Dec 2024",
+        role: "Senior Software Engineer, Full Stack",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Executed full development of a non-profit organization's website, implementing advanced features resulting in 10% increase in online donations from 240+ donors
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Contributed to Wakefield Trinity - Fixtures Flutter app development, creating reusable components and optimizing performance, reducing code redundancy by 15%
           </>,
+          <>
+            Led Phase 2 development of UrjaDrishti project (Ministry of Power) using Django and Next.js, improving report generation efficiency by 10% and code quality by 15%
+          </>,
+          <>
+            Developed real estate management web app frontend using NextJS13, implementing multilingual support and improving application efficiency by 50%
+          </>,
+          <>
+            Collaborated on headless CMS development using monorepo architecture, TypeScript, and Next.js 14, reducing project delivery times by 25%
+          </>,
+          <>
+            Enhanced Perfios WordPress development with optimized templates, increasing development speed by 50%
+          </>
         ],
         images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+          // {
+          //   src: "/images/projects/project-01/cover-01.jpg",
+          //   alt: "Once UI Project",
+          //   width: 16,
+          //   height: 9,
+          // },
+        ]
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Cybrosys Technologies",
+        timeframe: "Mar 2022 – Mar 2023",
+        role: "Software Developer, Python Odoo JS",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Built dynamic Odoo dashboard application with customizable layouts, achieving 9,600+ downloads and active users
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
+            Developed and deployed 20+ applications to Odoo Store including Odoo-Jira Connector, Website Helpdesk Dashboard, and Salon Management app
+          </>
         ],
-        images: [],
+        images: []
       },
+      {
+        company: "Strokx Technologies",
+        timeframe: "Nov 2019 – Nov 2020",
+        role: "Web Developer [Python-Django]",
+        achievements: [
+          <>
+            Enhanced user experience by 25% through feature development in Django projects
+          </>,
+          <>
+            Developed 3+ websites including a movie streaming platform
+          </>
+        ],
+        images: []
+      },
+      {
+        company: "Cybrosys Technologies",
+        timeframe: "",
+        role: "Intern, Python – JavaScript - Odoo",
+        achievements: [
+          <>
+            Developed 5+ applications using Core Python, JavaScript, jQuery, HTML, CSS, Bootstrap5 and SQL
+          </>
+        ],
+        images: []
+      },
+      {
+        company: "Avodha Edutech",
+        timeframe: "",
+        role: "Intern, Android Development",
+        achievements: [
+          <>
+            Developed Task Tracker app using Android, XML, Java, and Kotlin
+          </>
+        ],
+        images: []
+      },
+      {
+        company: "Strokx Technologies",
+        timeframe: "June 2019 – Nov 2019",
+        role: "Intern, Web Development",
+        achievements: [
+          <>
+            Gained practical experience in web development fundamentals through collaborative projects
+          </>
+        ],
+        images: []
+      }
     ],
   },
   studies: {
@@ -138,13 +196,12 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
+        name: "University of Calicut",
+        description: <> Bachelor of Computer Application (BCA)
+          (June 2016 - March 2019)
+          Modules: Web programming, Data Structures, RDBMS, Object Oriented
+          Programming. </>,
+      }
     ],
   },
   technical: {
@@ -152,37 +209,77 @@ const about = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-        // optional: leave the array empty if you don't want to display images
+        title: "Frontend Development",
+        description: <>Proficient in modern frontend technologies including Next.js, React, TypeScript, and Flutter for cross-platform development. Experienced in creating responsive, multilingual applications with optimized performance.</>,
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+            alt: "Next.js logo",
+            width: 5,
+            height: 5,
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            alt: "React logo",
+            width: 5,
+            height: 5,
           },
+          {
+            src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+            alt: "TypeScript logo",
+            width: 5,
+            height: 5,
+          }
         ],
       },
       {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
-        // optional: leave the array empty if you don't want to display images
+        title: "Backend Development",
+        description: <>Strong foundation in Python with Django framework, experienced in building RESTful APIs, and developing custom Odoo applications. Skilled in database management and system architecture.</>,
         images: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            alt: "Python logo",
+            width: 5,
+            height: 5,
           },
+          {
+            src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+            alt: "Django logo",
+            width: 5,
+            height: 5,
+          },
+          {
+            src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            alt: "PostgreSQL logo",
+            width: 5,
+            height: 5,
+          }
         ],
       },
+      {
+        title: "Tools & Technologies",
+        description: <>Experienced with modern development tools and practices including WordPress, headless CMS, monorepo architecture, and version control systems. Skilled in optimizing development workflows and improving code quality.</>,
+        images: [
+          {
+            src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
+            alt: "WordPress logo",
+            width: 5,
+            height: 5,
+          },
+          {
+            src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            alt: "Docker logo",
+            width: 5,
+            height: 5,
+          },
+          {
+            src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+            alt: "Git logo",
+            width: 5,
+            height: 5,
+          }
+        ],
+      }
     ],
   },
 };
