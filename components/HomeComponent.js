@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
 import ContentWrapper from "@/components/common/layouts/ContentWrapper";
 import useBlogStore from "@/hooks/useBlogStore";
-
-// Import sections
 import AboutSection from "@/components/sections/AboutSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import SkillsSection from "@/components/sections/SkillsSection";
@@ -56,7 +54,7 @@ const HomeComponent = ({ initialData }) => {
   if (isLoading) return <Loader />;
 
   return (
-    <ContentWrapper className="max-w-6xl  mx-auto px-4 py-8">
+    <ContentWrapper className="mx-auto px-4 py-8">
       <AboutSection />
       <SkillsSection />
       <ExperienceSection />

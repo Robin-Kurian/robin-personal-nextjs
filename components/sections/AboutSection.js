@@ -9,11 +9,17 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
+import { HyperText } from "../magicui/hyper-text";
+import { MorphingText } from "../magicui/morphing-text";
+import { useState } from "react";
+import { TextAnimate } from "../magicui/text-animate";
 
 const AboutSection = () => {
+  const [showHyperText, setShowHyperText] = useState(false);
+
   const defaultDescription = (
-    <span className="mr-2 text-gray-900 dark:text-gray-400">
-      Hi, I am a software engineer with over four years of experience in web
+    <span className="text-gray-900 dark:text-gray-400 text-pretty">
+      Hi, I am an SDE with over four years of proven experience in web
       development, And always dedicated to creating intuitive user experiences
       and delivering impactful projects.
     </span>
@@ -85,13 +91,6 @@ const AboutSection = () => {
         <span className="fade-in delay-6">
           <br />
           <br />
-          {/* <a
-            href="#contact"
-            rel="noopener noreferrer"
-            className="bg-gradient-to-r from-green-300 to-green-700 text-transparent bg-clip-text font-bold rounded-md"
-          >
-            So, How can I help you?{" "}
-          </a> */}
           <DialogClose asChild>
             <Button
               type="button"
@@ -104,13 +103,6 @@ const AboutSection = () => {
             >
               So, How can I help you?
             </Button>
-            {/* <a
-              href="#contact"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-green-300 to-green-700 text-transparent bg-clip-text font-bold rounded-md"
-            >
-              So, How can I help you?{" "}
-            </a> */}
           </DialogClose>
         </span>
       </div>
@@ -118,14 +110,25 @@ const AboutSection = () => {
   );
 
   return (
-    <section className="min-h-full flex flex-col">
+    <section className="min-h-full flex flex-col justify-center items-center">
       <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 ">
-        <div className="flex-1 text-center md:text-left ">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-blue-100 text-transparent bg-clip-text">
-            Robin K
-          </h1>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6">
-            Full Stack Developer
+        <div className="flex-1 text-left justify-start">
+          <MorphingText
+            once={true}
+            texts={["", "Hi!", "I'm", "Robin K."]}
+            onComplete={() => setShowHyperText(true)}
+          />
+          <h2 className="text-xl md:text-4xl font-semibold mb-6">
+            {showHyperText && (
+              <HyperText
+                className="text-left  w-full max-w-screen-md"
+                duration={3000}
+                delay={0}
+                startOnView={false}
+              >
+                Web Developer
+              </HyperText>
+            )}
           </h2>
 
           <div>
