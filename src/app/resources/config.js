@@ -1,4 +1,4 @@
-const baseURL = "demo.magic-portfolio.com";
+const baseURL = "robink.netlify.app";
 
 const routes = {
   "/": true,
